@@ -18,12 +18,14 @@ typedef struct{
 int main(void){
 
 GPIOA->MODER |= (1U<<10U);
-
+GPIOA->OTYPER &= ~(1U<<5U);
+GPIOA->OSPEEDER |= (2U<<10U);
+GPIOA->PUPDR &= ~(3U<<10U);
 
     while(1){
 
     }
-    
+
 return 0;
 
 }

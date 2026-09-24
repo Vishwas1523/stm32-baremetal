@@ -23,10 +23,10 @@ GPIOA->OSPEEDER |= (2U<<10U);   /* Config the output speed of port 5 */
 GPIOA->PUPDR &= ~(3U<<10U);     /* Configuring the push-pull of port 5 */
 
     while(1){
+        for(int i = 0; i < 100000; i++) /* delay loop */
         GPIOA->BSRR = (1U<<5U);     /* Set the port 5 */
         for(int i = 0; i < 100000; i++)     /* delay loop */
         GPIOA->BSRR = (1U<<21U);    /* Reset the port 5 */
-        for(int i = 0; i < 100000; i++) /* delay loop */
     }
 
 return 0;

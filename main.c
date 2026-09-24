@@ -13,14 +13,17 @@ typedef struct{
     volatile uint32_t AFRH;
 }GPIO_Type;
 
-#define GPIOA       (GPIO_Type*)4002000
+#define GPIOA       ((GPIO_Type*)0x40020000U)
 
-void main(void){
+int main(void){
+
+GPIOA->MODER |= (1U<<10U);
 
 
     while(1){
 
     }
-
+    
+return 0;
 
 }

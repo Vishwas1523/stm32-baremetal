@@ -23,7 +23,10 @@ GPIOA->OSPEEDER |= (2U<<10U);
 GPIOA->PUPDR &= ~(3U<<10U);
 
     while(1){
-
+        GPIOA->BSRR = (1U<<5U);
+        for(int i = 0; i < 100000; i++)
+        GPIOA->BSRR = (1U<<21U);
+        for(int i = 0; i < 100000; i++)
     }
 
 return 0;

@@ -15,8 +15,12 @@ typedef struct{
 
 #define GPIOA       (GPIO_Type*)4002000
 
-int main(void){
+void main(void){
+
+
     while(1){
 
     }
+
+
 }

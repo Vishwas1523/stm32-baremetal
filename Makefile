@@ -6,4 +6,5 @@ all : $(OBJECTS)
 $(OBJECTS): %.o : %.c
 	$(CC)	-c	$(CFLAGS)	$(LDFLAGS)	$<	-o	$@
 
-	
+clean:
+	del /Q	$(OBJECTS)

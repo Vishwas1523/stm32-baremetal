@@ -1,8 +1,25 @@
+#include <stdint.h>
 
-extern int main(void);  /* main() func declaration */
+/* main() func declaration */
+extern int main(void);  
 
-typedef void (*isr_vector)(void);   /* vector table will be a collection of functions which returns 
-                                     * void and take void as arguments */
+/* start address for the initialization values of the .data section. defined in linker script */
+extern uint32_t _sidata;
+
+/* start address for the .data section. defined in linker script */  
+extern uint32_t _sdata;
+
+/* end address for the .data section. defined in linker script */
+extern uint32_t _edata;
+
+/* start address for the .bss section. defined in linker script */
+extern uint32_t _sbss;
+
+/* end address for the .bss section. defined in linker script */
+extern uint32_t _ebss; 
+
+/* vector table will be a collection of functions which returns void and take void as arguments */
+typedef void (*isr_vector)(void);   
 
 extern void stack_pointer(void);    /* sets main stack pointer at address 0x00000000U */
 void reset_handler(void);           /* reset handler will create the C run time environment */
@@ -26,6 +43,7 @@ isr_vector vector_table[] = {
 
 /*-------------------------------------------Definitions of handlers-------------------------------------*/
 void reset_handler(void){
+    
     setData();  /* Sets the .data section */
     setBSS();   /* Sets the .bss section */
 

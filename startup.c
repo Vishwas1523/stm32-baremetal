@@ -1,4 +1,6 @@
 
+extern int main(void);  /* main() func declaration */
+
 typedef void (*isr_vector)(void);   /* vector table will be a collection of functions which returns 
                                      * void and take void as arguments */
 
@@ -24,7 +26,12 @@ isr_vector vector_table[] = {
 
 /*-------------------------------------------Definitions of handlers-------------------------------------*/
 void reset_handler(void){
+    setData();  /* Sets the .data section */
+    setBSS();   /* Sets the .bss section */
 
+    main();     /* Calls main() func */
+
+    while(1);   /* If execution returns from main() it will fall into this loop forver */
 }
 
 void default_handler(void){

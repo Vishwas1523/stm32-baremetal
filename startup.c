@@ -32,7 +32,7 @@ void BusFault_handler(void)  __attribute__((weak, alias("default_handler")));
 void UsageFault_handler(void)  __attribute__((weak, alias("default_handler")));
 
 //----------------------------------------------------------------------------------------------
-isr_vector vector_table[] = {
+const isr_vector vector_table[] = {
     &stack_pointer,
     &reset_handler,
     &NMI_handler,

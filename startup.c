@@ -39,7 +39,7 @@ const isr_vector vector_table[] = {
     &MemManage_handler,
     &BusFault_handler,
     &UsageFault_handler
-};
+};  /* It is necessary to make vector table const so that linker script won't force it into RAM */
 
 /*-------------------------------------------Definitions of handlers-------------------------------------*/
 void reset_handler(void){

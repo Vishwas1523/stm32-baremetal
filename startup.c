@@ -21,7 +21,6 @@ extern uint32_t _ebss;
 /* vector table will be a collection of functions which returns void and take void as arguments */
 typedef void (*isr_vector)(void);   
 
-extern void stack_pointer(void);    /* sets main stack pointer at address 0x00000000U */
 void reset_handler(void);           /* reset handler will create the C run time environment */
 
 /*--------------------------Exception handlers----------------------------*/
@@ -33,7 +32,6 @@ void UsageFault_handler(void)  __attribute__((weak, alias("default_handler")));
 
 //----------------------------------------------------------------------------------------------
 const isr_vector vector_table[] = {
-    &stack_pointer,
     &reset_handler,
     &NMI_handler,
     &MemManage_handler,

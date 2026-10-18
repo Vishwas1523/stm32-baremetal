@@ -1,15 +1,19 @@
-CC	:=	arm-none-eabi-gcc
-CFLAGS	:=	-mcpu=cortex-m4	-mthumb	-Wall	-fdata-sections	-o0
-LDFLAGS	:=	--specs=nano.specs	--specs=nosys.specs -nostdlib -T linkerScript.ld 
-OBJECTS	:=	main.o	gpio.o	startup.o
 
-all :  main.elf $(OBJECTS)
+CC := arm-none-eabi-gcc
 
-$(OBJECTS): %.o : %.c
-	$(CC)	-c	$(CFLAGS)	$(LDFLAGS)	$<	-o	$@
+CFLAGS := -mcpu=cortex-m4 -mthumb -Wall -O0	-ffunction-sections -fdata-sections
 
-main.elf	: $(OBJECTS)
-	$(CC)	-c	$(CFLAGS)	$(LDFLAGS)	$<	-o	$@
+LDFLAGS := -nostdlib -T linkerScript.ld	-Wl,--gc-sections
+
+OBJECTS := main.o gpio.o startup.o
+
+all: main.elf
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+main.elf: $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $@
 
 clean:
-	del /Q	$(OBJECTS) *.elf
+	del /Q $(OBJECTS) main.elf

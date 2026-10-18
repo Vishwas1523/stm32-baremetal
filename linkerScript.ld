@@ -8,14 +8,14 @@ MEMORY
 
 SECTIONS
 {
-    .isr_vector
+    .isr_vector :
     {   
         . = ALIGN(4);
         *(.isr_vector)
         . = ALIGN(4);
     } >FLASH
 
-    .text
+    .text :
     {
         . = ALIGN(4);
         *(.text)

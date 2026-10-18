@@ -42,12 +42,24 @@ const isr_vector vector_table[] __attribute__((section(".isr_vector"))) =  {
 /*-------------------------------------------Definitions of handlers-------------------------------------*/
 void reset_handler(void){
     
-    setData();  /* Sets the .data section */
-    setBSS();   /* Sets the .bss section */
+    /* Initialize the .data section */
+        uint32_t *src = &_sidata;
+        uint32_t *dst = &_sdata;
 
-    main();     /* Calls main() func */
+     while (dst < &_edata) {
+            *dst++ = *src++;
+        }
 
-    while(1);   /* If execution returns from main() it will fall into this loop forver */
+        /* Initialize the .bss section */
+        dst = &_sbss;
+
+        while (dst < &_ebss) {
+            *dst++ = 0U;
+        }
+
+        main();     /* Calls main() func */
+
+        while(1);   /* If execution returns from main() it will fall into this loop forver */
 }
 
 void default_handler(void){

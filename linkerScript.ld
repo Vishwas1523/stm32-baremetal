@@ -13,7 +13,7 @@ SECTIONS
     .isr_vector :
     {   
         . = ALIGN(4);
-        *(.isr_vector)
+        KEEP(*(.isr_vector))
         . = ALIGN(4);
     } >FLASH
 
@@ -46,7 +46,7 @@ SECTIONS
         _edata = .;
     } >RAM AT> FLASH
   
-    .bss :
+    .bss (NOLOAD) :
     {
         . = ALIGN(4);
         _sbss = .;        

@@ -6,6 +6,8 @@ MEMORY
     RAM (rwx)    :   ORIGIN = 0x20000000, LENGTH = 128k    
 }
 
+_estack = ORIGIN(RAM) + LENGTH(RAM);
+
 SECTIONS
 {
     .isr_vector :

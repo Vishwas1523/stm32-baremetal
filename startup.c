@@ -3,6 +3,9 @@
 /* main() func declaration */
 extern int main(void);  
 
+/* Inital stack pointer*/
+extern uint32_t _estack;
+
 /* start address for the initialization values of the .data section. defined in linker script */
 extern uint32_t _sidata;
 
@@ -32,6 +35,7 @@ void UsageFault_handler(void)  __attribute__((weak, alias("default_handler")));
 
 //----------------------------------------------------------------------------------------------
 const isr_vector vector_table[] __attribute__((section(".isr_vector"))) =  {
+    (isr_vector)&_estack,
     &reset_handler,
     &NMI_handler,
     &MemManage_handler,

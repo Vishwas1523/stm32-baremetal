@@ -30,3 +30,4 @@ reset:
 
 load2:
 	openocd -f "C:\Users\VICTUS\xpack-openocd-0.12.0-7\openocd\scripts\board\st_nucleo_f4.cfg"
+	

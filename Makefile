@@ -22,7 +22,7 @@ main.elf: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $@
 
 clean:
-	del /Q $(OBJECTS) main.elf main.map
+	del /Q $(OBJECTS) main.elf main.map *.su
 
 load:
 	$(CLI) $(CLIFLAGS) -d main.elf -v

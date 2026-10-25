@@ -2,13 +2,17 @@ OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm","elf32-littlearm")
 
 ENTRY(reset_handler)
 
+FLASH_SIZE  =   0x80000;    /* 512 KB flash */
+RAM_SIZE    =   0x20000;    /* 128 KB RAM */
+STACK_SIZE  =   0x800;      /* 2KB of stack */    
+
 MEMORY
 {
-    FLASH (rx)   :   ORIGIN = 0x08000000, LENGTH = 512K
-    RAM (rwx)    :   ORIGIN = 0x20000000, LENGTH = 128k    
+    FLASH (rx)   :   ORIGIN = 0x08000000, LENGTH = FLASH_SIZE
+    RAM (rwx)    :   ORIGIN = 0x20000000, LENGTH = RAM_SIZE - STACK_SIZE    
 }
 
-_estack = ORIGIN(RAM) + LENGTH(RAM);
+_estack = ORIGIN(RAM) + RAM_SIZE;
 
 SECTIONS
 {

@@ -22,8 +22,6 @@ C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/
                               C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-stdio.o) (_read_r)
 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-writer.o)
                               C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-stdio.o) (_write_r)
-C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
-                              syscalls.o (__errno)
 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
                               C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o (__libc_init_array)
 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-lock.o)
@@ -72,36 +70,6 @@ Discarded input sections
  .text          0x00000000        0x0 startup.o
  .data          0x00000000        0x0 startup.o
  .bss           0x00000000        0x0 startup.o
- .text          0x00000000        0x0 syscalls.o
- .data          0x00000000        0x0 syscalls.o
- .bss           0x00000000        0x0 syscalls.o
- .bss.__env     0x00000000        0x4 syscalls.o
- .data.environ  0x00000000        0x4 syscalls.o
- .text.initialise_monitor_handles
-                0x00000000        0xc syscalls.o
- .text._getpid  0x00000000        0xe syscalls.o
- .text._kill    0x00000000       0x20 syscalls.o
- .text._exit    0x00000000       0x16 syscalls.o
- .text._read    0x00000000       0x3a syscalls.o
- .text._write   0x00000000       0x38 syscalls.o
- .text._close   0x00000000       0x16 syscalls.o
- .text._fstat   0x00000000       0x1e syscalls.o
- .text._isatty  0x00000000       0x14 syscalls.o
- .text._lseek   0x00000000       0x18 syscalls.o
- .text._open    0x00000000       0x1a syscalls.o
- .text._wait    0x00000000       0x1e syscalls.o
- .text._unlink  0x00000000       0x1e syscalls.o
- .text._times   0x00000000       0x16 syscalls.o
- .text._stat    0x00000000       0x1e syscalls.o
- .text._link    0x00000000       0x20 syscalls.o
- .text._fork    0x00000000       0x16 syscalls.o
- .text._execve  0x00000000       0x22 syscalls.o
- .text._sbrk    0x00000000       0x58 syscalls.o
- .bss.heap_end.0
-                0x00000000        0x4 syscalls.o
- .comment       0x00000000       0x46 syscalls.o
- .ARM.attributes
-                0x00000000       0x2e syscalls.o
  .text          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
  .data          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
  .bss           0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
@@ -218,13 +186,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-writer.o)
  .ARM.attributes
                 0x00000000       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-writer.o)
- .text          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
- .data          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
- .bss           0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
- .text.__errno  0x00000000        0xc C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
- .debug_frame   0x00000000       0x20 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
- .ARM.attributes
-                0x00000000       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-errno.o)
  .text          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .data          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .bss           0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
@@ -344,7 +305,6 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
 LOAD main.o
 LOAD gpio.o
 LOAD startup.o
-LOAD syscalls.o
 START GROUP
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libgcc.a
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a

@@ -7,7 +7,6 @@ GPIOA->MODER |= (1U<<10U);      /* Init and set the mode of GPIOA port 5 as outp
 GPIOA->OTYPER &= ~(1U<<5U);     /* Config the output type of Port 5*/
 GPIOA->OSPEEDER |= (2U<<10U);   /* Config the output speed of port 5 */
 GPIOA->PUPDR &= ~(3U<<10U);     /* Configuring the push-pull of port 5 */
-
     while(1){
         for(int i = 0; i < 100000; i++) /* delay loop */
         GPIOA->BSRR = (1U<<5U);     /* Set the port 5 */

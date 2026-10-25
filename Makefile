@@ -5,7 +5,7 @@ CFLAGS := -mcpu=cortex-m4 -mthumb	-mfloat-abi=soft	-Wall	-Werror	-O0	-ffunction-
 
 LDFLAGS := -mcpu=cortex-m4 -mthumb	-mfloat-abi=soft	--specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections -Wl,-Map=main.map
 
-OBJECTS := main.o gpio.o startup.o syscalls.o
+OBJECTS := main.o gpio.o startup.o
 
 CLI	:=	STM32_Programmer_CLI.exe
 

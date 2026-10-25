@@ -26,8 +26,7 @@ SECTIONS
     .text :
     {
         . = ALIGN(4);
-        *(.text)
-        *(.text*)
+        *(.text .text* .gnu.linkonce.r.*)
         . = ALIGN(4);
         _etext = .;
     } >FLASH
@@ -35,8 +34,7 @@ SECTIONS
     .rodata :
     {
         . = ALIGN(4);
-        *(.rodata)         
-        *(.rodata*)        
+        *(.rodata .rodata* .gnu.linkonce.r.*)        
         . = ALIGN(4);
     } >FLASH
 

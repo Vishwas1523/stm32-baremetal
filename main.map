@@ -40,8 +40,7 @@ LOAD startup.o
 
 .text           0x08000018       0xec
                 0x08000018                        . = ALIGN (0x4)
- *(.text)
- *(.text*)
+ *(.text .text* .gnu.linkonce.r.*)
  .text.main     0x08000018       0x88 main.o
                 0x08000018                main
  .text.reset_handler
@@ -77,8 +76,7 @@ LOAD startup.o
 
 .rodata         0x08000104        0x0
                 0x08000104                        . = ALIGN (0x4)
- *(.rodata)
- *(.rodata*)
+ *(.rodata .rodata* .gnu.linkonce.r.*)
                 0x08000104                        . = ALIGN (0x4)
                 0x08000104                        _sidata = LOADADDR (.data)
 

@@ -28,6 +28,8 @@ SECTIONS
         . = ALIGN(4);
         *(.text .text* .gnu.linkonce.r.*)
         . = ALIGN(4);
+        KEEP(*(.init))
+        KEEP(*(.fini))
         _etext = .;
     } >FLASH
 
@@ -38,7 +40,7 @@ SECTIONS
         . = ALIGN(4);
     } >FLASH
     
-    .preinit_array :
+    /* .preinit_array :
     {
         . = ALIGN(4);
         PROVIDE_HIDDEN(__preinit_array_start = .);
@@ -62,7 +64,7 @@ SECTIONS
         KEEP(*(SORT_BY_INIT_PRIORITY(.fini_array.*)))
         KEEP(*(.fini_array))
         PROVIDE_HIDDEN(__fini_array_end = .);
-    } > FLASH
+    } > FLASH */
 
       _sidata = LOADADDR(.data);
 

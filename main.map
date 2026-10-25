@@ -228,11 +228,6 @@ Discarded input sections
  .text          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .data          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .bss           0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
- .text.__libc_init_array
-                0x00000000       0x48 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
- .debug_frame   0x00000000       0x2c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
- .ARM.attributes
-                0x00000000       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .text          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-lock.o)
  .data          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-lock.o)
  .bss           0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-lock.o)
@@ -372,7 +367,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x08000000                vector_table
                 0x08000018                        . = ALIGN (0x4)
 
-.text           0x08000018      0x190
+.text           0x08000018      0x1dc
                 0x08000018                        . = ALIGN (0x4)
  *(.text .text* .gnu.linkonce.r.*)
  .text.deregister_tm_clones
@@ -386,76 +381,79 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
  .text.main     0x080000a4       0x88 main.o
                 0x080000a4                main
  .text.reset_handler
-                0x0800012c       0x5c startup.o
+                0x0800012c       0x60 startup.o
                 0x0800012c                reset_handler
  .text.default_handler
-                0x08000188        0x8 startup.o
-                0x08000188                default_handler
-                0x08000188                MemManage_handler
-                0x08000188                UsageFault_handler
-                0x08000188                BusFault_handler
-                0x08000188                NMI_handler
-                0x08000190                        . = ALIGN (0x4)
+                0x0800018c        0x8 startup.o
+                0x0800018c                default_handler
+                0x0800018c                MemManage_handler
+                0x0800018c                UsageFault_handler
+                0x0800018c                BusFault_handler
+                0x0800018c                NMI_handler
+ .text.__libc_init_array
+                0x08000194       0x48 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
+                0x08000194                __libc_init_array
+                0x080001dc                        . = ALIGN (0x4)
  *(.init)
- .init          0x08000190        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
-                0x08000190                _init
- .init          0x08000194        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+ .init          0x080001dc        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
+                0x080001dc                _init
+ .init          0x080001e0        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
  *(.fini)
- .fini          0x0800019c        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
-                0x0800019c                _fini
- .fini          0x080001a0        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
-                0x080001a8                        _etext = .
+ .fini          0x080001e8        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
+                0x080001e8                _fini
+ .fini          0x080001ec        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x080001f4                        _etext = .
 
-.glue_7         0x080001a8        0x0
- .glue_7        0x080001a8        0x0 linker stubs
+.glue_7         0x080001f4        0x0
+ .glue_7        0x080001f4        0x0 linker stubs
 
-.glue_7t        0x080001a8        0x0
- .glue_7t       0x080001a8        0x0 linker stubs
+.glue_7t        0x080001f4        0x0
+ .glue_7t       0x080001f4        0x0 linker stubs
 
-.vfp11_veneer   0x080001a8        0x0
- .vfp11_veneer  0x080001a8        0x0 linker stubs
+.vfp11_veneer   0x080001f4        0x0
+ .vfp11_veneer  0x080001f4        0x0 linker stubs
 
-.v4_bx          0x080001a8        0x0
- .v4_bx         0x080001a8        0x0 linker stubs
+.v4_bx          0x080001f4        0x0
+ .v4_bx         0x080001f4        0x0 linker stubs
 
-.iplt           0x080001a8        0x0
- .iplt          0x080001a8        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.iplt           0x080001f4        0x0
+ .iplt          0x080001f4        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.rodata         0x080001a8        0x0
-                0x080001a8                        . = ALIGN (0x4)
+.rodata         0x080001f4        0x0
+                0x080001f4                        . = ALIGN (0x4)
  *(.rodata .rodata* .gnu.linkonce.r.*)
-                0x080001a8                        . = ALIGN (0x4)
+                0x080001f4                        . = ALIGN (0x4)
 
-.eh_frame       0x080001a8        0x0
- .eh_frame      0x080001a8        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.eh_frame       0x080001f4        0x0
+ .eh_frame      0x080001f4        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.preinit_array  0x080001a8        0x0
-                0x080001a8                        . = ALIGN (0x4)
-                0x080001a8                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080001f4        0x0
+                0x080001f4                        . = ALIGN (0x4)
+                0x080001f4                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x080001a8                        PROVIDE (__preinit_array_end = .)
+                0x080001f4                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x080001a8        0x4
-                0x080001a8                        . = ALIGN (0x4)
-                0x080001a8                        PROVIDE (__init_array_start = .)
+.init_array     0x080001f4        0x4
+                0x080001f4                        . = ALIGN (0x4)
+                0x080001f4                        PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*))
  *(.init_array)
- .init_array    0x080001a8        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
-                0x080001ac                        PROVIDE (__init_array_end = .)
+ .init_array    0x080001f4        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x080001f8                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x080001ac        0x4
-                0x080001ac                        . = ALIGN (0x4)
+.fini_array     0x080001f8        0x4
+                0x080001f8                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*))
  *(.fini_array)
- .fini_array    0x080001ac        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+ .fini_array    0x080001f8        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x080001b0                        _sidata = LOADADDR (.data)
+                0x080001fc                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x080001b0        0x0
- .rel.iplt      0x080001b0        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.rel.dyn        0x080001fc        0x0
+ .rel.iplt      0x080001fc        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.data           0x20000000        0x0 load address 0x080001b0
+.data           0x20000000        0x0 load address 0x080001fc
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -464,16 +462,16 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x20000000                        _edata = .
 
 .tm_clone_table
-                0x20000000        0x0 load address 0x080001b0
+                0x20000000        0x0 load address 0x080001fc
  .tm_clone_table
                 0x20000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .tm_clone_table
                 0x20000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
 
-.igot.plt       0x20000000        0x0 load address 0x080001b0
+.igot.plt       0x20000000        0x0 load address 0x080001fc
  .igot.plt      0x20000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.bss            0x20000000       0x1c load address 0x080001b0
+.bss            0x20000000       0x1c load address 0x080001fc
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sbss = .
                 0x20000000                        __bss_start__ = _sbss
@@ -503,11 +501,16 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000007a       0x2e startup.o
  .ARM.attributes
-                0x000000a8       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
+                0x000000a8       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .ARM.attributes
-                0x000000d6       0x1e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x000000d6       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
+ .ARM.attributes
+                0x00000104       0x1e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 main.o
                                  0x46 (size before relaxing)
  .comment       0x00000045       0x46 startup.o
+
+.debug_frame    0x00000000       0x2c
+ .debug_frame   0x00000000       0x2c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)

@@ -1,5 +1,8 @@
 #include <stdint.h>
 
+/* preinitialiszing and initializing C constructors */
+extern void __libc_init_array(void);
+
 /* main() func declaration */
 extern int main(void);  
 
@@ -60,6 +63,8 @@ void reset_handler(void){
         while (dst < &_ebss) {
             *dst++ = 0U;
         }
+
+        __libc_init_array();     /* Calls __libc_init_array() for initializing C constructors */
 
         main();     /* Calls main() func */
 

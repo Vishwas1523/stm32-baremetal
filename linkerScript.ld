@@ -9,7 +9,7 @@ STACK_SIZE  =   0x800;      /* 2KB of stack */
 MEMORY
 {
     FLASH (rx)   :   ORIGIN = 0x08000000, LENGTH = FLASH_SIZE
-    RAM (rwx)    :   ORIGIN = 0x20000000, LENGTH = RAM_SIZE - STACK_SIZE    
+    RAM (xwr)    :   ORIGIN = 0x20000000, LENGTH = RAM_SIZE - STACK_SIZE    
 }
 
 _estack = ORIGIN(RAM) + RAM_SIZE;
@@ -40,7 +40,7 @@ SECTIONS
         . = ALIGN(4);
     } >FLASH
     
-    /* .preinit_array :
+    .preinit_array (READONLY):
     {
         . = ALIGN(4);
         PROVIDE_HIDDEN(__preinit_array_start = .);
@@ -48,7 +48,7 @@ SECTIONS
         PROVIDE_HIDDEN(__preinit_array_end = .);
     } > FLASH
 
-    .init_array :
+    .init_array (READONLY):
     {
         . = ALIGN(4);
         PROVIDE_HIDDEN(__init_array_start = .);
@@ -57,14 +57,14 @@ SECTIONS
         PROVIDE_HIDDEN(__init_array_end = .);
     } > FLASH
 
-    .fini_array :
+    .fini_array (READONLY):
     {
         . = ALIGN(4);
         PROVIDE_HIDDEN(__fini_array_start = .);
         KEEP(*(SORT_BY_INIT_PRIORITY(.fini_array.*)))
         KEEP(*(.fini_array))
         PROVIDE_HIDDEN(__fini_array_end = .);
-    } > FLASH */
+    } > FLASH
 
       _sidata = LOADADDR(.data);
 

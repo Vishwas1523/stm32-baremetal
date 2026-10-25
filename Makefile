@@ -3,7 +3,7 @@ CC := arm-none-eabi-gcc
 
 CFLAGS := -mcpu=cortex-m4 -mthumb -Wall	-Werror	-O0	-ffunction-sections -fdata-sections
 
-LDFLAGS := --specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections -Wl,-Map=main.map
+LDFLAGS := -mcpu=cortex-m4 -mthumb --specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections -Wl,-Map=main.map
 
 OBJECTS := main.o gpio.o startup.o syscalls.o
 

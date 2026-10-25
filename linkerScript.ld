@@ -1,3 +1,5 @@
+OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm","elf32-littlearm")
+
 ENTRY(reset_handler)
 
 MEMORY

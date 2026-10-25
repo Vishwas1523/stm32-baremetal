@@ -1,0 +1,2 @@
+startup.c:47:6:reset_handler	16	static
+startup.c:69:6:default_handler	4	static

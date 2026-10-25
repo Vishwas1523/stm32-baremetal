@@ -11,6 +11,8 @@ CLI	:=	STM32_Programmer_CLI.exe
 
 CLIFLAGS	:=	-c port=SWD
 
+CFLAGS	+=	-fstack-usage -Wstack-usage=2048
+
 all: main.elf
 
 %.o: %.c

@@ -78,6 +78,26 @@ LOAD startup.o
                 0x08000104                        . = ALIGN (0x4)
  *(.rodata .rodata* .gnu.linkonce.r.*)
                 0x08000104                        . = ALIGN (0x4)
+
+.preinit_array  0x08000104        0x0
+                0x08000104                        . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x08000104        0x0
+                0x08000104                        . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x08000104        0x0
+                0x08000104                        . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end = .)
                 0x08000104                        _sidata = LOADADDR (.data)
 
 .data           0x20000000        0x0 load address 0x08000104

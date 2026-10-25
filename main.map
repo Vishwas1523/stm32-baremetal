@@ -13,6 +13,36 @@ Discarded input sections
  .text          0x00000000        0x0 startup.o
  .data          0x00000000        0x0 startup.o
  .bss           0x00000000        0x0 startup.o
+ .text          0x00000000        0x0 syscalls.o
+ .data          0x00000000        0x0 syscalls.o
+ .bss           0x00000000        0x0 syscalls.o
+ .bss.__env     0x00000000        0x4 syscalls.o
+ .data.environ  0x00000000        0x4 syscalls.o
+ .text.initialise_monitor_handles
+                0x00000000        0xc syscalls.o
+ .text._getpid  0x00000000        0xe syscalls.o
+ .text._kill    0x00000000       0x20 syscalls.o
+ .text._exit    0x00000000       0x16 syscalls.o
+ .text._read    0x00000000       0x3a syscalls.o
+ .text._write   0x00000000       0x38 syscalls.o
+ .text._close   0x00000000       0x16 syscalls.o
+ .text._fstat   0x00000000       0x1e syscalls.o
+ .text._isatty  0x00000000       0x14 syscalls.o
+ .text._lseek   0x00000000       0x18 syscalls.o
+ .text._open    0x00000000       0x1a syscalls.o
+ .text._wait    0x00000000       0x1e syscalls.o
+ .text._unlink  0x00000000       0x1e syscalls.o
+ .text._times   0x00000000       0x16 syscalls.o
+ .text._stat    0x00000000       0x1e syscalls.o
+ .text._link    0x00000000       0x20 syscalls.o
+ .text._fork    0x00000000       0x16 syscalls.o
+ .text._execve  0x00000000       0x22 syscalls.o
+ .text._sbrk    0x00000000       0x58 syscalls.o
+ .bss.heap_end.0
+                0x00000000        0x4 syscalls.o
+ .comment       0x00000000       0x46 syscalls.o
+ .ARM.attributes
+                0x00000000       0x2e syscalls.o
 
 Memory Configuration
 
@@ -26,6 +56,7 @@ Linker script and memory map
 LOAD main.o
 LOAD gpio.o
 LOAD startup.o
+LOAD syscalls.o
                 0x00080000                        FLASH_SIZE = 0x80000
                 0x00020000                        RAM_SIZE = 0x20000
                 0x00000800                        STACK_SIZE = 0x800
@@ -114,11 +145,15 @@ LOAD startup.o
 .bss            0x20000000        0x0 load address 0x08000104
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sbss = .
+                0x20000000                        __bss_start__ = _sbss
  *(.bss)
  *(.bss*)
  *(COMMON)
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _ebss = .
+                0x20000000                        __bss_end__ = _ebss
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        end = .
 OUTPUT(main.elf elf32-littlearm)
 LOAD linker stubs
 

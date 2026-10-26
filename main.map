@@ -294,7 +294,7 @@ Memory Configuration
 
 Name             Origin             Length             Attributes
 FLASH            0x08000000         0x00080000         xr
-RAM              0x20000000         0x0001f800         xrw
+RAM              0x20000000         0x00020000         xrw
 *default*        0x00000000         0xffffffff
 
 Linker script and memory map
@@ -318,7 +318,8 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x00080000                        FLASH_SIZE = 0x80000
                 0x00020000                        RAM_SIZE = 0x20000
                 0x00000800                        STACK_SIZE = 0x800
-                0x20020000                        _estack = (ORIGIN (RAM) + RAM_SIZE)
+                0x00000800                        HEAP_SIZE = 0x800
+                0x20020000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
 
 .isr_vector     0x08000000       0x18
                 0x08000000                        . = ALIGN (0x4)
@@ -387,6 +388,18 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
 .eh_frame       0x080001f4        0x0
  .eh_frame      0x080001f4        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
+.ARM.extab      0x080001f4        0x0
+                0x080001f4                        . = ALIGN (0x4)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x080001f4                        . = ALIGN (0x4)
+
+.ARM            0x080001f4        0x0
+                0x080001f4                        . = ALIGN (0x4)
+                0x080001f4                        __exidx_start = .
+ *(.ARM.exidx*)
+                0x080001f4                        __exidx_end = .
+                0x080001f4                        . = ALIGN (0x4)
+
 .preinit_array  0x080001f4        0x0
                 0x080001f4                        . = ALIGN (0x4)
                 0x080001f4                        PROVIDE (__preinit_array_start = .)
@@ -447,6 +460,18 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x2000001c                        __bss_end__ = _ebss
                 0x2000001c                        . = ALIGN (0x4)
                 0x2000001c                        end = .
+
+._user_heap_stack
+                0x2000001c     0x1004 load address 0x080001fc
+                0x20000020                        . = ALIGN (0x8)
+ *fill*         0x2000001c        0x4 
+                [!provide]                        PROVIDE (end = .)
+                [!provide]                        PROVIDE (_end = .)
+                0x20000820                        . = (. + HEAP_SIZE)
+ *fill*         0x20000020      0x800 
+                0x20001020                        . = (. + STACK_SIZE)
+ *fill*         0x20000820      0x800 
+                0x20001020                        . = ALIGN (0x8)
 OUTPUT(main.elf elf32-littlearm)
 LOAD linker stubs
 

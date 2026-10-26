@@ -5,14 +5,15 @@ ENTRY(reset_handler)
 FLASH_SIZE  =   0x80000;    /* 512 KB flash */
 RAM_SIZE    =   0x20000;    /* 128 KB RAM */
 STACK_SIZE  =   0x800;      /* 2KB of stack */    
+HEAP_SIZE   =   0x800;      /* 2KB of heap */
 
 MEMORY
 {
     FLASH (rx)   :   ORIGIN = 0x08000000, LENGTH = FLASH_SIZE
-    RAM (xwr)    :   ORIGIN = 0x20000000, LENGTH = RAM_SIZE - STACK_SIZE    
+    RAM (xwr)    :   ORIGIN = 0x20000000, LENGTH = RAM_SIZE    
 }
 
-_estack = ORIGIN(RAM) + RAM_SIZE;
+_estack = ORIGIN(RAM) + LENGTH(RAM);
 
 SECTIONS
 {
@@ -108,5 +109,15 @@ SECTIONS
         . = ALIGN(4);
         end = .;
     } >RAM
-    
+
+    ._user_heap_stack :
+    {
+        . = ALIGN(8);
+        PROVIDE ( end = . );
+        PROVIDE ( _end = . );
+        . = . + HEAP_SIZE;
+        . = . + STACK_SIZE;
+        . = ALIGN(8);
+    } >RAM
+
 }

@@ -317,8 +317,6 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
                 0x00080000                        FLASH_SIZE = 0x80000
                 0x00020000                        RAM_SIZE = 0x20000
-                0x00000800                        STACK_SIZE = 0x800
-                0x00000800                        HEAP_SIZE = 0x800
                 0x20020000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
 
 .isr_vector     0x08000000       0x18
@@ -330,7 +328,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
 
 .text           0x08000018      0x1dc
                 0x08000018                        . = ALIGN (0x4)
- *(.text .text* .gnu.linkonce.r.*)
+ *(.text .text.* .gnu.linkonce.t.*)
  .text.deregister_tm_clones
                 0x08000018       0x1c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .text.register_tm_clones
@@ -460,18 +458,6 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x2000001c                        __bss_end__ = _ebss
                 0x2000001c                        . = ALIGN (0x4)
                 0x2000001c                        end = .
-
-._user_heap_stack
-                0x2000001c     0x1004 load address 0x080001fc
-                0x20000020                        . = ALIGN (0x8)
- *fill*         0x2000001c        0x4 
-                [!provide]                        PROVIDE (end = .)
-                [!provide]                        PROVIDE (_end = .)
-                0x20000820                        . = (. + HEAP_SIZE)
- *fill*         0x20000020      0x800 
-                0x20001020                        . = (. + STACK_SIZE)
- *fill*         0x20000820      0x800 
-                0x20001020                        . = ALIGN (0x8)
 OUTPUT(main.elf elf32-littlearm)
 LOAD linker stubs
 

@@ -22,7 +22,7 @@ main.elf: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $@
 
 clean:
-	del /Q $(OBJECTS) main.elf main.map *.su
+	del /Q $(OBJECTS) main.elf main.map *.su main.bin
 
 load:
 	$(CLI) $(CLIFLAGS) -d main.elf -v
@@ -32,4 +32,6 @@ reset:
 
 load2:
 	openocd -f "C:\Users\VICTUS\xpack-openocd-0.12.0-7\openocd\scripts\board\st_nucleo_f4.cfg"
-	
+
+bin: 
+	arm-none-eabi-objcopy -O binary main.elf main.bin

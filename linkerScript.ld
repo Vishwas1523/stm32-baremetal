@@ -27,7 +27,7 @@ SECTIONS
     .text :
     {
         . = ALIGN(4);
-        *(.text .text* .gnu.linkonce.r.*)
+        *(.text .text.* .gnu.linkonce.t.*)
         . = ALIGN(4);
         KEEP(*(.init))
         KEEP(*(.fini))

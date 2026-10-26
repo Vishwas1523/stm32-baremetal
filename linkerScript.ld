@@ -40,6 +40,22 @@ SECTIONS
         . = ALIGN(4);
     } >FLASH
     
+    .ARM.extab (READONLY) : 
+    {
+        . = ALIGN(4);
+        *(.ARM.extab* .gnu.linkonce.armextab.*)
+        . = ALIGN(4);
+    } >FLASH
+
+    .ARM (READONLY) : 
+    {
+        . = ALIGN(4);
+        __exidx_start = .;
+        *(.ARM.exidx*)
+        __exidx_end = .;
+        . = ALIGN(4);
+      } >FLASH
+
     .preinit_array (READONLY):
     {
         . = ALIGN(4);

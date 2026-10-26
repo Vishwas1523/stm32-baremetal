@@ -4,8 +4,6 @@ ENTRY(reset_handler)
 
 FLASH_SIZE  =   0x80000;    /* 512 KB flash */
 RAM_SIZE    =   0x20000;    /* 128 KB RAM */
-STACK_SIZE  =   0x800;      /* 2KB of stack */    
-HEAP_SIZE   =   0x800;      /* 2KB of heap */
 
 MEMORY
 {
@@ -108,16 +106,6 @@ SECTIONS
         __bss_end__ = _ebss;
         . = ALIGN(4);
         end = .;
-    } >RAM
-
-    ._user_heap_stack :
-    {
-        . = ALIGN(8);
-        PROVIDE ( end = . );
-        PROVIDE ( _end = . );
-        . = . + HEAP_SIZE;
-        . = . + STACK_SIZE;
-        . = ALIGN(8);
     } >RAM
 
 }

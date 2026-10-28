@@ -16,9 +16,11 @@ CFLAGS	+=	-fstack-usage -Wstack-usage=2048
 all: main.elf
 
 %.o: %.c
+	@echo compiling $<
 	$(CC) $(CFLAGS) -c $< -o $@
 
 main.elf: $(OBJECTS)
+	@echo linking $@
 	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $@
 
 clean:

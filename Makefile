@@ -37,3 +37,6 @@ load2:
 
 bin: 
 	arm-none-eabi-objcopy -O binary main.elf main.bin
+
+.PHONY:
+	all clean load reset load2 bin

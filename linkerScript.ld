@@ -1,6 +1,6 @@
 OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm","elf32-littlearm")
 
-ENTRY(reset_handler)
+ENTRY(Reset_Handler)
 
 FLASH_SIZE  =   0x80000;    /* 512 KB flash */
 RAM_SIZE    =   0x20000;    /* 128 KB RAM */

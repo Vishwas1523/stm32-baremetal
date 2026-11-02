@@ -40,16 +40,16 @@ $(BUILD_DIR)/main.elf: $(OBJECTS)
 clean:
 	del /Q $(OBJ_DIR) $(BUILD_DIR)
 
-load:
-	$(CLI) $(CLIFLAGS) -d $(BUILD_DIR)/main.elf -v
+load:	$(BUILD_DIR)/main.elf
+	$(CLI) $(CLIFLAGS) -d $< -v
 
-reset:
+reset:	load
 	$(CLI) $(CLIFLAGS) -rst
 
-load2:
+load2:	$(BUILD_DIR)/main.elf
 	openocd -f "C:\Users\VICTUS\xpack-openocd-0.12.0-7\openocd\scripts\board\st_nucleo_f4.cfg"
 
-bin: $(BUILD_DIR)/main.elf
+bin:	$(BUILD_DIR)/main.elf
 	arm-none-eabi-objcopy -O binary $< $(BUILD_DIR)/main.bin
 
 .PHONY:

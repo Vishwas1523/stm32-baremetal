@@ -1,2 +1,2 @@
-startup.c:257:10:Reset_Handler	16	static
-startup.c:281:6:Default_Handler	4	static
+src/startup.c:257:10:Reset_Handler	16	static
+src/startup.c:281:6:Default_Handler	4	static

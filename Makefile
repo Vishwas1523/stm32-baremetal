@@ -19,13 +19,15 @@ OBJ_DIR	= obj
 
 BUILD_DIR	=	build
 
+SRC_DIR	=	src
+
 OBJECTS := obj/main.o obj/gpio.o obj/startup.o
 
 CLI	:=	STM32_Programmer_CLI.exe
 
 all: $(BUILD_DIR)/main.elf
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo compiling $<
 	@if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@

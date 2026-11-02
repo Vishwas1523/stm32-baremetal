@@ -58,15 +58,15 @@ Discarded input sections
                 0x00000000       0xd3 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o
  .ARM.attributes
                 0x00000000       0x1c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o
- .text          0x00000000        0x0 obj/main.o
- .data          0x00000000        0x0 obj/main.o
- .bss           0x00000000        0x0 obj/main.o
  .text          0x00000000        0x0 obj/gpio.o
  .data          0x00000000        0x0 obj/gpio.o
  .bss           0x00000000        0x0 obj/gpio.o
  .comment       0x00000000       0x46 obj/gpio.o
  .ARM.attributes
                 0x00000000       0x2e obj/gpio.o
+ .text          0x00000000        0x0 obj/main.o
+ .data          0x00000000        0x0 obj/main.o
+ .bss           0x00000000        0x0 obj/main.o
  .text          0x00000000        0x0 obj/startup.o
  .data          0x00000000        0x0 obj/startup.o
  .bss           0x00000000        0x0 obj/startup.o
@@ -302,8 +302,8 @@ Linker script and memory map
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o
-LOAD obj/main.o
 LOAD obj/gpio.o
+LOAD obj/main.o
 LOAD obj/startup.o
 START GROUP
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libgcc.a

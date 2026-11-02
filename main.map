@@ -58,18 +58,18 @@ Discarded input sections
                 0x00000000       0xd3 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o
  .ARM.attributes
                 0x00000000       0x1c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o
- .text          0x00000000        0x0 main.o
- .data          0x00000000        0x0 main.o
- .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 gpio.o
- .data          0x00000000        0x0 gpio.o
- .bss           0x00000000        0x0 gpio.o
- .comment       0x00000000       0x46 gpio.o
+ .text          0x00000000        0x0 obj/main.o
+ .data          0x00000000        0x0 obj/main.o
+ .bss           0x00000000        0x0 obj/main.o
+ .text          0x00000000        0x0 obj/gpio.o
+ .data          0x00000000        0x0 obj/gpio.o
+ .bss           0x00000000        0x0 obj/gpio.o
+ .comment       0x00000000       0x46 obj/gpio.o
  .ARM.attributes
-                0x00000000       0x2e gpio.o
- .text          0x00000000        0x0 startup.o
- .data          0x00000000        0x0 startup.o
- .bss           0x00000000        0x0 startup.o
+                0x00000000       0x2e obj/gpio.o
+ .text          0x00000000        0x0 obj/startup.o
+ .data          0x00000000        0x0 obj/startup.o
+ .bss           0x00000000        0x0 obj/startup.o
  .text          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
  .data          0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
  .bss           0x00000000        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
@@ -302,9 +302,9 @@ Linker script and memory map
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crt0.o
-LOAD main.o
-LOAD gpio.o
-LOAD startup.o
+LOAD obj/main.o
+LOAD obj/gpio.o
+LOAD obj/startup.o
 START GROUP
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libgcc.a
 LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a
@@ -322,7 +322,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
 .isr_vector     0x08000000      0x1c4
                 0x08000000                        . = ALIGN (0x4)
  *(.isr_vector)
- .isr_vector    0x08000000      0x1c4 startup.o
+ .isr_vector    0x08000000      0x1c4 obj/startup.o
                 0x08000000                vector_table
                 0x080001c4                        . = ALIGN (0x4)
 
@@ -337,13 +337,13 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x08000204       0x28 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .text.frame_dummy
                 0x0800022c       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
- .text.main     0x08000250       0x88 main.o
+ .text.main     0x08000250       0x88 obj/main.o
                 0x08000250                main
  .text.Reset_Handler
-                0x080002d8       0x60 startup.o
+                0x080002d8       0x60 obj/startup.o
                 0x080002d8                Reset_Handler
  .text.Default_Handler
-                0x08000338        0x8 startup.o
+                0x08000338        0x8 obj/startup.o
                 0x08000338                RTC_Alarm_IRQHandler
                 0x08000338                EXTI2_IRQHandler
                 0x08000338                TIM8_CC_IRQHandler
@@ -549,7 +549,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib
                 0x2000001c                        __bss_end__ = _ebss
                 0x2000001c                        . = ALIGN (0x4)
                 0x2000001c                        end = .
-OUTPUT(main.elf elf32-littlearm)
+OUTPUT(build/main.elf elf32-littlearm)
 LOAD linker stubs
 
 .ARM.attributes
@@ -559,9 +559,9 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000001e       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .ARM.attributes
-                0x0000004c       0x2e main.o
+                0x0000004c       0x2e obj/main.o
  .ARM.attributes
-                0x0000007a       0x2e startup.o
+                0x0000007a       0x2e obj/startup.o
  .ARM.attributes
                 0x000000a8       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)
  .ARM.attributes
@@ -570,9 +570,9 @@ LOAD linker stubs
                 0x00000104       0x1e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
 
 .comment        0x00000000       0x45
- .comment       0x00000000       0x45 main.o
+ .comment       0x00000000       0x45 obj/main.o
                                  0x46 (size before relaxing)
- .comment       0x00000045       0x46 startup.o
+ .comment       0x00000045       0x46 obj/startup.o
 
 .debug_frame    0x00000000       0x2c
  .debug_frame   0x00000000       0x2c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp\libc_nano.a(libc_a-init.o)

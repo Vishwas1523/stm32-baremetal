@@ -1,3 +1,5 @@
+#ifndef _GPIO_H_
+#define _GPIO_H_
 #include <stdint.h>
 
 typedef struct{
@@ -14,4 +16,4 @@ typedef struct{
 }GPIO_Type;     /* GPIO register structure */
 
 #define GPIOA       ((GPIO_Type*)0x40020000U)   /* GPIOA peripheral address*/
-
+#endif

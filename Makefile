@@ -17,7 +17,7 @@ SRC_DIR	=	src
 #---------------------- Files ---------------------------------------
 TARGET	=	$(BUILD_DIR)/main.elf
 SOURCES	=	$(wildcard $(SRC_DIR)/*.c)
-OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
+OBJECTS = 	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
 
 #------------------------ CLI for loading the code in mcu --------------------------
 CLI	:=	STM32_Programmer_CLI.exe

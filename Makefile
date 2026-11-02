@@ -4,6 +4,8 @@ CC := arm-none-eabi-gcc
 #-------------------- Flags -----------------------------------------
 CFLAGS := -mcpu=cortex-m4 -mthumb	-mfloat-abi=soft	-Wall	-Werror	-O0	-ffunction-sections -fdata-sections
 
+CFLAGS	+=	-I includes/	#Header files 
+
 CFLAGS	+=	-fstack-usage -Wstack-usage=2048	#Compiler flags for stack
 
 LDFLAGS :=	--specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections 

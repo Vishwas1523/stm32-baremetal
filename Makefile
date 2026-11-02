@@ -21,10 +21,15 @@ BUILD_DIR	=	build
 
 SRC_DIR	=	src
 
+#---------------------- Object Files ---------------------------------------
 OBJECTS := obj/main.o obj/gpio.o obj/startup.o
 
+
+#------------------------ CLI for loading the code in mcu --------------------------
 CLI	:=	STM32_Programmer_CLI.exe
 
+
+#------------------------------ Recepies ---------------------------------------
 all: $(BUILD_DIR)/main.elf
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c

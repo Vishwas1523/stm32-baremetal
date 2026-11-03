@@ -23,13 +23,14 @@ SOURCES	=	$(wildcard $(SRC_DIR)/*.c)
 OBJECTS = 	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
 DEPS	=	$(OBJECTS:.o=.d)
 
+#---------------------------- Target Build ------------------------------
+all: $(TARGET)
+.DEFAULT_GOAL	:=	all		#defalt goal
+
 #------------------------ Includes ----------------------------------------
 -include	$(DEPS)
 
-#------------------------------ Recepies ---------------------------------------
-all: $(TARGET)
-
-.DEFAULT_GOAL	:=	all		#defalt goal 
+#------------------------------ Recepies --------------------------------------- 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo compiling $<

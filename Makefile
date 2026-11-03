@@ -25,6 +25,8 @@ CLI	:=	STM32_Programmer_CLI.exe
 #------------------------------ Recepies ---------------------------------------
 all: $(TARGET)
 
+.DEFAULT_GOAL	:=	all		#defalt goal 
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo compiling $<
 	@if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)

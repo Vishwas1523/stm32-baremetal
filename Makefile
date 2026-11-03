@@ -5,6 +5,7 @@ CC := arm-none-eabi-gcc
 CFLAGS := -mcpu=cortex-m4 -mthumb	-mfloat-abi=soft	-Wall	-Werror	-O0	-ffunction-sections -fdata-sections
 CFLAGS	+=	-I includes/	#Header files 
 CFLAGS	+=	-fstack-usage -Wstack-usage=2048	#Compiler flags for stack
+CFLAGS	+=	-MMD	-MP		#Automatic dependency generation variable
 LDFLAGS :=	--specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections 
 LDFLAGS	+=	-Wl,-Map=main.map	#Linker Flags for map file
 CLIFLAGS	:=	-c port=SWD
@@ -18,9 +19,13 @@ SRC_DIR	=	src
 TARGET	=	$(BUILD_DIR)/main.elf
 SOURCES	=	$(wildcard $(SRC_DIR)/*.c)
 OBJECTS = 	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
+DEPS	=	$(OBJECTS:.o=.d)
 
 #------------------------ CLI for loading the code in mcu --------------------------
 CLI	:=	STM32_Programmer_CLI.exe
+
+#------------------------ Includes ----------------------------------------
+-include	$(DEPS)
 
 #------------------------------ Recepies ---------------------------------------
 all: $(TARGET)

@@ -1,5 +1,4 @@
 #include <stdint.h>
-
 /* preinitialiszing and initializing C constructors */
 extern void __libc_init_array(void);
 

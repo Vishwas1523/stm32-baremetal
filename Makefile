@@ -6,7 +6,8 @@ CFLAGS := -mcpu=cortex-m4 -mthumb	-mfloat-abi=soft	-Wall	-Werror	-O0	-ffunction-
 CFLAGS	+=	-I includes/	#Header files 
 CFLAGS	+=	-fstack-usage -Wstack-usage=2048	#Compiler flags for stack
 CFLAGS	+=	-MMD	-MP		#Automatic dependency generation variable
-LDFLAGS :=	--specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections 
+LDFLAGS	:=	-mcpu=cortex-m4 -mthumb	-mfloat-abi=soft
+LDFLAGS +=	--specs=nano.specs -T linkerScript.ld	-Wl,--gc-sections 
 LDFLAGS	+=	-Wl,-Map=main.map	#Linker Flags for map file
 CLIFLAGS	:=	-c port=SWD
 

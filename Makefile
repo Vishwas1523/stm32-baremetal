@@ -40,7 +40,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(BUILD_DIR)/main.elf: $(OBJECTS)
 	@echo linking $@
 	@if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
-	$(CC)	$(CFLAGS)	$(LDFLAGS)	$(OBJECTS)	-o	$@
+	$(CC)	$(LDFLAGS)	$(OBJECTS)	-o	$@
 
 clean:
 	del /Q $(OBJ_DIR) $(BUILD_DIR)

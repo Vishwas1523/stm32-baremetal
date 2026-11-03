@@ -45,17 +45,16 @@ $(BUILD_DIR)/main.elf: $(OBJECTS)
 clean:
 	del /Q $(OBJ_DIR) $(BUILD_DIR)
 
-load:	$(BUILD_DIR)/main.elf
+load:	$(BUILD_DIR)/main.elf	#Loading the code in mcu using STM32Cube_Programmer_CLI.exe
 	$(CLI) $(CLIFLAGS) -d $< -v
 
 reset:	load
 	$(CLI) $(CLIFLAGS) -rst
 
-load2:	$(BUILD_DIR)/main.elf
+load2:	$(BUILD_DIR)/main.elf	#Loading the code in mcu using OpenOCD
 	openocd -f "C:\Users\VICTUS\xpack-openocd-0.12.0-7\openocd\scripts\board\st_nucleo_f4.cfg"
 
 bin:	$(BUILD_DIR)/main.elf
 	arm-none-eabi-objcopy -O binary $< $(BUILD_DIR)/main.bin
 
-.PHONY:
-	all clean load reset load2 bin
+.PHONY:	all clean load reset load2 bin

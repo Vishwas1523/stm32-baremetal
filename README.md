@@ -1,5 +1,5 @@
 ## STM32 Bare-Metal Firmware Repository
-This repository is for STM32 F446RE, built using custom made MakeFile, LinkerScript, StartupCode and Drivers. 
+This repository is for STM32 F446RE, built using custom MakeFile, LinkerScript, StartupCode and Drivers. 
 
 The goal while making this repository was to understand the whole building and flashing of C code into STM32, how a piece of code works with the hardware and what happens behind all those abstractions of an IDE.
 
@@ -107,7 +107,7 @@ Linker + .a (other libraries like std and third parties)
 - `Note:` Generally startup file is written in `assembly` but I wrote it in `C` due to my limited knowledge of assembly.
 
 ### 2. Linker Script (linkerScript.ld)
-- Linker Script is a text file which explains fhow different sections of the object files should be merget to create an output file.
+- Linker Script is a text file which explains how different sections of the object files should be merged to create an output file.
 - Linker and locator combination assigns unique absolute addresses to different sections of the output file by referring to address information mentioned in the linker script.
 - Linker Script also includes the code and data memory address and size information.
 - Linker Scripts are written using the GNU Linker Command language.
@@ -126,3 +126,32 @@ It handles:
 - Invoking programming and debugging tools.
 
 ### 4. Memory Layout
+#### Flash Layout:
+<img src="images/Flash_Layout.jpeg" alt="Flash_Layout" width="600"/>
+
+#### RAM Layout:
+<img src="images/RAM_Layout.jpeg" alt="RAM_Layout" width="600"/>
+
+## Learning Outcomes:
+- Through this project, I aim to develop a deeper understanding of:
+- The embedded C compilation and linking pipeline.
+- ARM Cortex-M startup and initialization.
+- Memory-mapped peripheral programming.
+- Flash and SRAM organization.
+- Linker scripts and executable sections.
+- GNU Make and build automation.
+- Firmware debugging using GDB and OpenOCD.
+
+
+## Future Improvements:
+This repository was primarily created to learn about the concepts behind the curtains of abstractions and there are a lot of things to add in it. This will keep improving as I learn more and more about Embedded Systems and STM32 Programming.
+
+Here are some improvements that I plan to implement:
+- Add peripheral drivers.
+- Add RCC, DMA and Interrupt options.
+- Add sections in README.md: 
+    `How to build, flash and debug` & `What happens when you press the Reset Button`
+- Improve the debugging part.
+- Integrate it with CMSIS.
+
+## Thank You For Reading It Till The End!

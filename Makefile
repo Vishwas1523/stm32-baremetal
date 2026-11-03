@@ -1,5 +1,6 @@
-#------------------ Compiler ----------------------------------------
+#------------------ Toolchain ----------------------------------------
 CC := arm-none-eabi-gcc
+CLI	:=	STM32_Programmer_CLI.exe
 
 #-------------------- Flags -----------------------------------------
 CFLAGS := -mcpu=cortex-m4 -mthumb	-mfloat-abi=soft	-Wall	-Werror	-O0	-ffunction-sections -fdata-sections
@@ -21,9 +22,6 @@ TARGET	=	$(BUILD_DIR)/main.elf
 SOURCES	=	$(wildcard $(SRC_DIR)/*.c)
 OBJECTS = 	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
 DEPS	=	$(OBJECTS:.o=.d)
-
-#------------------------ CLI for loading the code in mcu --------------------------
-CLI	:=	STM32_Programmer_CLI.exe
 
 #------------------------ Includes ----------------------------------------
 -include	$(DEPS)

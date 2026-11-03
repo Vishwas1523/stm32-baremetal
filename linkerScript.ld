@@ -46,7 +46,7 @@ SECTIONS    /* Different sections of RAM and Flash */
         . = ALIGN(4);
     } >FLASH
 
-    .ARM (READONLY) : /* ARM specific sectino which is read only */
+    .ARM (READONLY) : /* ARM specific section which is read only */
     {
         . = ALIGN(4);
         __exidx_start = .;
